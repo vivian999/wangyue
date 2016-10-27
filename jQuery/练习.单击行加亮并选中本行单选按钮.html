@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            table{
+                width: 400px;
+                height: 60px;
+                border-collapse: collapse;
+            }
+            th{
+                border-bottom:1px solid black;
+            }
+            td{
+                width: 400px;
+                height: 60px;
+                text-align: center;
+                line-height: 60px;
+            }
+            .even{
+                background: blue;
+            }
+            .selected{
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+    <table>
+        <thead>
+            <tr><td></td><td>啊啊</td><td>广告</td><td>看看</td></tr>
+        </thead>
+        <tbody>
+            <tr><td><input type="radio" name="u"/></td><td>辅导</td><td>辅导</td><td>差点</td></tr>
+            <tr><td><input type="radio"  name="u"/></td><td>得到</td><td>刚刚</td><td>放大</td></tr>
+            <tr><td><input type="radio"  name="u"/></td><td>换个</td><td>刚刚</td><td>哥哥</td></tr>
+            <tr><td><input type="radio"  name="u"/></td><td>恩恩</td><td>流量</td><td>放入</td></tr>
+            <tr><td><input type="radio"  name="u"/></td><td>广告</td><td>看见</td><td>扣扣</td></tr>
+            <tr><td><input type="radio"  name="u"/></td><td>看看</td><td>让人</td><td>按时</td></tr>
+        </tbody>
+    </table>
+    <script src="jquery-1.12.4.js" type="text/javascript"></script>
+    <script>
+        $(function(){
+            $('tbody tr:even').addClass('even');
+            $('tbody tr').on('click',function(){
+
+                $(this)
+                        .addClass('selected')
+                        .siblings().removeClass('selected').end()
+                        .find('input').prop('checked',true);
+            })
+        })
+    </script>
+    </body>
+</html>
