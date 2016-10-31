@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            #menu{
+                width: 100px;
+                height: 30px;
+            }
+            #menu h3{
+                background: #000;
+                color:white
+            }
+            #menu .sub-menu{
+                display: none;
+                border: 1px solid black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul id="menu">
+            <li class="main-menu">
+                <h3>交流区</h3>
+                <ul class="sub-menu">
+                    <li>link1</li>
+                    <li>link2</li>
+                    <li>link3</li>
+                </ul>
+            </li>
+            <li class="main-menu">
+                <h3>管理区</h3>
+                <ul class="sub-menu">
+                    <li>link1</li>
+                    <li>link2</li>
+                    <li>link3</li>
+                </ul>
+            </li>
+        </ul>
+        <script>
+            var oMenu=document.getElementById('menu');
+            var aH3=oMenu.getElementsByTagName('h3');
+            var aSubmenu=oMenu.getElementsByTagName('ul');
+            for(var i=0;i<aH3.length;i++){
+                aH3[i].index=i;/*将索引存储起来，为了以后和自己一样的索引项建立起联系*//*储存*/
+                aH3[i].bFlag=false;/*标志位，最开始的状态是合着的，然后执行else打开*//*默认状态*/
+                aH3[i].onclick=function(){
+                   if(this.bFlag){
+                     aSubmenu[this.index].style.display='none';
+                   }else{
+                       aSubmenu[this.index].style.display='block';
+                   }
+                   this.bFlag=!this.bFlag;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            body{
+                font-size:16px;
+            }
+            table{
+                border:1px solid black;
+                border-collapse:collapse;
+                width:400px;
+            }
+            table td,th{
+                width:50%;
+                border:1px solid black;
+                height:30px;
+            }
+            tbody th{
+                background-color:#abc;
+            }
+            .selected{
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2"> 鼠标点击表格就可以编辑</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="editable">张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="editable">李四</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="editable">王五</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="editable">赵六</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="jquery-1.12.4.js" type="text/javascript"></script>
+    <script>
+        $(function(){
+          $('tbody td.editable').on('click',function(){
+              var $td=$(this);
+              if($('tbody td.editable').children('input[type="text"]').size()>0) {/*判断td里是否有input*/
+                  return false;/*true有的话就不执行以下操作，false没有的话就执行以下操作*/
+              }/*children找到亲儿子，find找到所有*/
+              var $input=$('<input type="text">');/*新创建一个input*/
+              $input.val($(this).text());/*将td里的文字放到input里 */
+              $(this).empty().append($input);/*将td清空以后，把input插入里面*/
+              $input.trigger('focus');/*给input添加个获取焦点*/
+              $input.on("keyup",function(event){/*给input添加一个鼠标弹起事件*/
+                  if(event.keyCode==13){/*点击enter时*/
+                      $td.text($input.val());/*将input里的内容返还给td*/
+                  }
+              });
+          });
+        });
+    </script>
+    </body>
+</html>

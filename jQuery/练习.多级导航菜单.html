@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            ul,li{
+                list-style:none;
+                font-size:20px;
+            }
+            /*
+             * 清除子菜单的缩进
+             */
+            ul{
+                padding:0px;
+                margin:0px;
+            }
+            /*
+             * 主菜单颜色
+             */
+            .main{
+                width:150px;
+                background:#ccc;
+            }
+            /*
+             * 子菜单颜色
+             */
+            li{
+                background:#777;
+
+            }
+            a{
+                color:black;
+                text-decoration:none;
+                padding-left:20px;
+                display:block;
+                padding-bottom:3px;
+                padding-top:3px;
+            }
+            .main a{
+                background-image:url("down.gif");
+                background-repeat:no-repeat;
+                background-position:3px center;
+
+            }
+            .main li a{
+                color:white;
+                background-image:none;
+
+            }
+            .main ul{
+                display:none;
+            }
+
+
+            .hmenu{
+                width:150px;
+                background:#ccc;
+                float:left;
+            }
+            .hmenu a{
+                background-image:url("down.gif");
+                background-repeat:no-repeat;
+                background-position:3px center;
+
+            }
+            .hmenu li a{
+                color:white;
+                background-image:none;
+
+            }
+            .hmenu ul{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+    <ul>
+        <li class="hmenu"><a href="#">菜单项1</a>
+            <ul>
+                <li><a href="#">子菜单1</a></li>
+                <li><a href="#">子菜单2</a></li>
+                <li><a href="#">子菜单3</a></li>
+            </ul>
+        </li>
+        <li class="hmenu"><a href="#">菜单项2</a>
+            <ul>
+                <li><a href="#">子菜单1</a></li>
+                <li><a href="#">子菜单2</a></li>
+                <li><a href="#">子菜单3</a></li>
+            </ul>
+        </li>
+        <li class="hmenu"><a href="">菜单项3</a>
+            <ul>
+                <li><a href="#">子菜单1</a></li>
+                <li><a href="#">子菜单2</a></li>
+                <li><a href="#">子菜单3</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script src="jquery-1.12.4.js" type="text/javascript"></script>
+    <script>
+        $(function(){
+            $('.hmenu').hover(function(){
+                $(this).children('ul').stop().slideDown('slow');
+                $(this).children('a').css("background-image","url('up.gif')")
+            },function(){
+                $(this).children('ul').stop().slideUp('slow');
+                $(this).children('a').css("background-image","url('down.gif')")
+            })
+        })/*hover下边一般都有两个function,两者进行转换*/
+    </script>
+    </body>
+</html>
