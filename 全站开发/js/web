@@ -1,0 +1,13 @@
+/**
+ * Created by Administrator on 2016/11/2 0002.
+ */
+$(
+    $(':input').focus(function(){
+        if($(this).val()==this.defaultValue){
+            this.val='';
+        }
+    }.blur(function(){
+            if($(this).val()==''){
+                this.val=this.defaultValue;
+        }))
+);
