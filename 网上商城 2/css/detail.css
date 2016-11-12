@@ -1,0 +1,470 @@
+.wrap{
+    width:990px;
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+}
+/*Í·²¿*/
+#header{
+    height: 105px;
+    background:url("../images/headerbg.png") repeat;
+}
+#logo{
+    width: 158px;
+    height: 59px;
+    margin-left: 10px;
+    float: left;
+}
+#input{
+    width: 214px;
+    height: 27px;
+    float: left;
+    margin-top: 20px;
+    margin-left:30px;
+}
+#nav{
+    /*margin-left:68px;*/
+    /*margin-bottom: 0;*/
+    width: 990px;
+    height: 37px;
+    position: absolute ;
+    left: 0;
+    top:68px;
+    background:#4A4A4A;
+}
+#nav li.see{
+    position: relative;
+}
+#nav li{
+    width: 49px;
+    height: 37px;
+    margin-right: 14px;
+    float: left;
+    text-align: center;
+    line-height: 37px;
+}
+#nav li>a{
+    width: 100%;
+    height: 100%;
+    color:white;
+}
+.pull{
+    border: 1px solid #ccc;
+    border-top: none;
+    position: absolute;
+    top: 24px;
+    left:0 ;
+    width: 476px;
+    height: 146px;
+    display: none;
+    z-index: 5;
+    background: #fff;
+}
+.pull .appear dt{
+    float: left;
+    width: 94px;
+    height: 66px;
+
+}
+.pull .appear dt a{
+    width: 94px;
+    height: 73px;
+    float: left;
+    text-align: center;
+    line-height:73px;
+    color: #000;
+    font-size: 14px;
+}
+dd{
+    height: 73px;
+    width: 476px;
+}
+dd a{
+    color: gray;
+}
+dd a:hover{
+    color: #008CD7;
+}
+.pull em{
+    border-right: 1px solid #CCCCCC;
+    float: left;
+    font-style: normal;
+    height: 14px;
+    line-height: 14px;
+    margin: 10px 0;
+    padding: 0 8px;
+}
+.pull em a{
+    /*color: #6b6b6b;*/
+    font-size: 10px;
+}
+.pull .fore{
+    border-bottom: 1px dashed #ccc;
+}
+.pull .ance{
+    border-bottom:none;
+}
+#skin{
+    width: 120px;
+    height: 15px;
+    float:right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+#skin li{
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-left: 4px;
+}
+#skin1{
+    background:url("../images/theme.gif") 0 0;
+}
+#skin2{
+    background:url("../images/theme.gif") -20px 0;
+}
+#skin3{
+    background:url("../images/theme.gif") -40px 0;
+}
+#skin4{
+    background:url("../images/theme.gif") -60px 0 ;
+}
+#skin5{
+    background:url("../images/theme.gif") -80px 0;
+}
+#skin6{
+    background:url("../images/theme.gif") -100px 0;
+}
+#skin .skin1{
+    background: url("../images/theme.gif")0 -16px no-repeat;
+}
+#skin .skin2{
+    background: url("../images/theme.gif")-20px -16px no-repeat;
+}
+#skin .skin3{
+    background: url("../images/theme.gif")-40px -16px no-repeat;
+}
+#skin .skin4{
+    background: url("../images/theme.gif")-60px -16px no-repeat;
+}
+#skin .skin5{
+    background: url("../images/theme.gif")-80px -16px no-repeat;
+}
+#skin .skin6{
+    background: url("../images/theme.gif")-100px -16px no-repeat;
+}
+#nav.color1,#vary.color1{
+    background: #4869ae;
+}
+#nav.color2,#vary.color2{
+    background: #b2d500;
+}
+#nav.color3,#vary.color3{
+    background: #fbab0d;
+}
+#nav.color4,#vary.color4{
+    background: #0abfcf;
+}
+#nav.color5,#vary.color5{
+    background: #e44072;
+}
+#nav.color6,#vary.color6 {
+    background: #ba39d8;
+}
+/*1.classify*/
+#body{
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 10px;
+}
+#classify{
+    width: 187px;
+    height: 550px;
+    /*background:red;*/
+    float: left;
+    margin-right: 10px;
+}
+#classify h2{
+    width:187px;
+    height:30px;
+    /*text-align: center;*/
+    line-height:30px;
+    background:lightgray;
+    font-size:12px;
+    text-indent: 10px;
+}
+#kind{
+    border: 1px solid lightgray;
+    width: 170px;
+    height: 520px;
+    padding: 5px 7px;
+}
+#kind h3{
+    width:164px;
+    height:24px;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 12px;
+    line-height: 24px;
+}
+#kind .brand{
+    overflow: hidden;
+    width: 158px;
+    height: 100px;
+}
+#kind .brand li{
+    float: left;
+    /*text-align:center;*/
+    color:#AEADAE;
+    width:79px;
+    height: 24px;
+    font-size: 11px;
+    text-indent: 4px;
+    line-height: 24px;
+}
+#kind li{
+    text-indent: 0;
+}
+#kind .brand .hot{
+    color: red;
+}
+/*2.middle*/
+#middle{
+    float: left;
+    width: 312px;
+    height: 560px;
+    position: absolute;
+    top: 0;
+    left: 200px;
+}
+#small-pic{
+    width:310px;
+    height: 310px;
+    /*float: left;*/
+    position: absolute;
+    left:0;
+    top: 0;
+    border: 1px solid black;
+}
+#look{
+    width: 99px;
+    height: 21px;
+    position: absolute;
+    left: 107px;
+    top: 322px;
+}
+#tab-pic{
+    position: absolute;
+    top: 347px;
+    left: 56px;
+    width: 220px;
+    height: 62px;
+    overflow: hidden;
+}
+#tab-pic li{
+    width:60px;
+    height:60px;
+    float: left;
+    margin-right: 3px;
+    padding:1px ;
+}
+#tab-pic li:hover{
+    border:1px solid #000;
+    padding: 0;
+}
+#tab-pic li img {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 5px;
+    /*border: 1px solid #BBBBBB;*/
+}
+#drag{
+    width:124px;
+    height:124px;
+    background:red;
+    opacity: 0.5;
+    filter:alpha(opacity:50);
+    display:none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#menu{
+    position:absolute;
+    left: 0;
+    top: 420px;
+    width: 310px;
+    height:142px;
+}
+#menu .main-menu{
+    height: 20px;
+}
+#menu .main-menu li{
+    float: left;
+    width: 90px;
+    height: 20px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 20px;
+}
+#menu .main-menu .selected{
+    background: red;
+}
+#menu .sub-menu{
+    width: 310px;
+    height: 122px;
+    border: 1px solid black;
+}
+#menu .sub-menu div{
+    display:none;
+}
+#menu .sub-menu div.selected{
+    display: block;
+}
+
+
+/*3.last*/
+#last{
+    float: left;
+    width: 458px;
+    height:560px;
+    position: absolute;
+    left:530px;
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53;
+    line-height: 25px;
+}
+#last h4{
+    font-size: 12px;
+}
+#content{
+    float: left;
+    width: 100%;
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53;
+    line-height: 25px;
+}
+#on-sale{
+    text-decoration: line-through;
+}
+#price{
+    font-weight: 700;
+    color: #FF5500;
+    font: 24px Tahoma,Arial,Helvetica,sans-serif;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+#big-pic{
+    width: 310px;
+    height: 310px;
+    border: 1px solid black;
+    overflow: hidden;
+    position: absolute;
+    left:0;
+    top: 0;
+    display: none;
+}
+#big-pic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:775px;
+    height:775px;
+}
+#mask{
+    width: 310px;
+    height: 310px;
+    background:red;
+    opacity: 0;
+    filter:alpha(opacity:0);
+    z-index: 9999;
+}
+#s-color{
+    height: 30px;
+}
+#s-color span{
+    float: left;
+    width: 26px;
+    height: 26px;
+    margin-right: 5px;
+    border: 1px solid #bbb;
+}
+#s-color span:hover{
+    border: 1px solid red;
+}
+#seize{
+    position: absolute;
+    left: 0;
+}
+#s-color .s-blue{
+    background: url("../images/pro_img/blue.jpg");
+    text-indent: -999999px;
+}
+#s-color .s-yellow{
+    background: url("../images/pro_img/yellow.jpg");
+    text-indent: -999999px;
+}
+#s-color .s-green{
+    background: url("../images/pro_img/green.jpg");
+    text-indent: -999999px;
+}
+#size li{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    border: 1px solid #bbb;
+}
+#size li.orange{
+    background: orange;
+}
+#number{
+    position: absolute;
+    left: 0;
+}
+#evaluate{
+    width: 80px;
+    height: 16px;
+    /*background-image:url("../images/star-matrix.gif");*/
+}
+#evaluate li{
+    width:16px;
+    height: 16px;
+    float: left;
+}
+#evaluate li a{
+    width: 16px;
+    height: 16px;
+}
+#evaluate .one{
+    background-image:url("../images/star-matrix.gif");
+}
+#evaluate .two{
+    background-image:url("../images/star-matrix.gif");
+}
+#evaluate .three{
+    background-image:url("../images/star-matrix.gif");
+}
+#evaluate .four{
+    background-image:url("../images/star-matrix.gif");
+}
+#evaluate .five{
+    background-image:url("../images/star-matrix.gif");
+}
+
+
+#footer{
+    position: absolute;
+    left: 300px;;
+    top: 700px;
+    width:990px;
+    text-align: center;
+    padding: 18px 0;
+    color: #666;
+    margin: 0 auto;
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53;
+}
