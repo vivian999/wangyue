@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #container{
+                width: 680px;
+                height: 344px;
+                margin: 50px auto;
+                position: relative;
+                -webkit-perspective:800px;
+            }
+            #ims{
+                width: 680px;
+                height: 344px;
+                position: absolute;
+            }
+            #ims img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                -webkit-transform-origin:center bottom;
+
+            }
+            #prev,#next{
+                width: 50px;
+                height: 50px;
+                background: gray;
+                text-align: center;
+                line-height: 50px;
+                position: absolute;
+                top: 50%;
+                font-size: 60px;
+                border-radius:50%;
+                -webkit-text-stroke:1px #000;
+                color: #fff;
+                cursor: pointer;
+            }
+            #prev{
+                left: -100px;
+
+            }
+            .show{
+                -webkit-animation:show 2s ease forwards;
+            }
+            @-webkit-keyframes show{
+                from{
+                    opacity:0;
+                    -webkit-transform:rotateX(180deg);
+                }
+                to{
+                    opacity:1;
+                    -webkit-transform:rotateX(0deg);/*状态*/
+                }
+            }
+            #next{
+                right: -100px;
+
+            }
+            .hide{
+                -webkit-animation:hide 1s ease forwards;
+            }
+            @-webkit-keyframes hide{
+                from{
+                    opacity:1;
+                    -webkit-transform:rotateX(0deg);
+                }
+                to{
+                    opacity:0;
+                    -webkit-transform:rotateX(-180deg);
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="ims">
+                <img src="../Image/1.jpg" class="show" alt=""/>
+                <img src="../Image/2.jpg" alt=""/>
+                <img src="../Image/3.jpg" alt=""/>
+                <img src="../Image/4.jpg" alt=""/>
+            </div>
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+            <script>
+                (function(){
+                    var oContainer=document.getElementById('container');
+                    var oPrev=document.getElementById('prev');
+                    var oNext=document.getElementById('next');
+                    var oIms=document.getElementById('ims');
+                    var aImg=oIms.getElementsByTagName('img');
+
+                    var index=0;
+                    oPrev.onclick=oNext.onclick=function(){
+                        if(this==oPrev){
+                            aImg[index].className="hide";
+                            index--;
+                            if(index==-1){
+                                index=aImg.length-1;
+                            }
+                            aImg[index].className="show";
+                        }else{
+                            aImg[index].className="hide";
+                            index++;
+                            if(index==aImg.length){
+                                index=0;
+                            }
+                            aImg[index].className="show";
+                        }
+                    }
+                })();
+            </script>
+        </div>
+    </body>
+</html>

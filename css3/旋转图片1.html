@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #stage{
+                width: 1000px;
+                height: 300px;
+                margin: 50px auto;
+                background: gray;
+                overflow: hidden;
+                -webkit-perspective:800px;
+                -webkit-perspective-origin:50% -15%;
+            }
+            #container{
+                width: 150px;
+                height: 100px;
+                position: relative;
+                margin: 50px auto;
+                -webkit-transform-style:preserve-3d;
+                -webkit-animation:vivian 4s linear infinite;
+            }
+            @-webkit-keyframes vivian{
+                from{
+
+                }
+                to{
+                    -webkit-transform:rotateY(-360deg);
+                }
+            }
+            .cube{
+                width: 150px;
+                height: 100px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .one{
+                -webkit-transform:rotateY(0deg) translateZ(220px);
+            }
+            .two{
+                -webkit-transform:rotateY(40deg) translateZ(220px);
+            }
+            .three{
+                -webkit-transform:rotateY(80deg) translateZ(220px);
+            }
+            .four{
+                -webkit-transform:rotateY(120deg) translateZ(220px);
+            }
+            .five{
+                -webkit-transform:rotateY(160deg) translateZ(220px);
+            }
+            .six{
+                -webkit-transform:rotateY(200deg) translateZ(220px);
+            }
+            .seven{
+                -webkit-transform:rotateY(240deg) translateZ(220px);
+            }
+            .eight{
+                -webkit-transform:rotateY(280deg) translateZ(220px);
+            }
+            .nine{
+                -webkit-transform:rotateY(320deg) translateZ(220px);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="stage">
+            <div id="container">
+                <img class="cube one" src="1.jpg" alt=""/>
+                <img class="cube two" src="2.jpg" alt=""/>
+                <img class="cube three" src="3.jpg" alt=""/>
+                <img class="cube four" src="4.jpg" alt=""/>
+                <img class="cube five" src="5.jpg" alt=""/>
+                <img class="cube six" src="6.jpg" alt=""/>
+                <img class="cube seven" src="7.jpg" alt=""/>
+                <img class="cube eight" src="8.jpg" alt=""/>
+                <img class="cube nine" src="9.jpg" alt=""/>
+            </div>
+        </div>
+    </body>
+</html>

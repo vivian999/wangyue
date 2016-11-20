@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #stage{
+                width: 1000px;
+                height: 500px;
+                background: gray;
+                margin: 50px auto;
+                overflow: hidden;
+                -webkit-perspective:800px;
+                -webkit-perspective-origin:50% -10%;
+            }
+            #container{
+                width: 150px;
+                height: 100px;
+                margin: 100px auto;
+                position: relative;
+                -webkit-transform-style: preserve-3d;
+                -webkit-transition:transform 2s ease;
+            }
+            img{
+                position: absolute;
+                width: 150px;
+                height: 100px;
+                -webkit-transition:transform 2s ease;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="stage">
+            <div id="container"></div>
+        </div>
+    </body>
+    <script>
+            var oContainer=document.getElementById('container');
+            /*创建图片*/
+            var html="";
+            for(var i=0;i<9;i++){
+//                var oImg=new Image;
+//                oImg.src=(i+1)+".jpg";
+                html+="<img src="+(i+1)+".jpg/>";
+            }
+            oContainer.innerHTML=html;
+
+            var aImg=document.getElementsByTagName('img');
+            /*第一种方法*/
+            var i=0;
+            setInterval(function(){
+                aImg[8-i].style.WebkitTransform="rotateY("+(i+1)*40+"deg) translateZ(220px)";
+                i++;
+            },100);
+          /*第二种方法*/
+//            for(var i=0;i<aImg.length;i++){
+//                (function(index){/*闭包*/
+//                    setTimeout(function(){
+//                        aImg[8-index].style.WebkitTransform="rotateY("+(index+1)*40+"deg) translateZ(220px)";
+//                    },100*index);
+//                })(i);
+//            }
+            /*点击移动*/
+            var index=0;
+            oContainer.onclick=function(){
+                index++;
+                this.style.WebkitTransform="rotateY("+(-index*40)+"deg)";
+            };
+    </script>
+</html>
