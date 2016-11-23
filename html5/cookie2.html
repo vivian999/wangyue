@@ -15,7 +15,7 @@
                 now.setDate(now.getDate()+day);
                 str+="expires="+now;//str=str+now;
             }
-            document.cookie=str;
+            document.cookie=str+="expires="+now;
         }
         /*获取*/
         getCookie("name");

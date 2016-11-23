@@ -21,6 +21,7 @@
         <script>
             var oCanvas=document.getElementById("canvas");
             var  cxt=oCanvas.getContext("2d");
+
             /*直线*/
             cxt.beginPath();
             cxt.strokeStyle="red";
@@ -30,6 +31,7 @@
             cxt.lineTo(50,100);
             cxt.closePath();
             cxt.stroke();
+
             /*弧*/
             cxt.beginPath();
             cxt.arc(100,100,50,0,2*Math.PI,true);
