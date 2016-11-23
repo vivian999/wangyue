@@ -7,28 +7,28 @@
     <body>
     <script>
         /*第一种方法*/
-//        var obj={
-//            name:"wangyue",
-//            age:23,
-//            mather:{
-//              name:"wangxiuping" ,
-//              age:47
-//            }
-//        };
-//        var obj1=clone(obj);
-//        obj.mather.name="wangdeguang";
-//        console.log(obj1.mather.name);
-//        function clone(obj){
-//            var obj2={};
-//            for(p in obj){
-//                if(typeof (obj[p])=="object"){
-//                   obj2[p]=clone(obj[p]);
-//                }else{
-//                    obj2[p]=obj[p];
-//                }
-//            }
-//            return obj2;
-//        }
+        var obj={
+            name:"wangyue",
+            age:23,
+            mather:{
+              name:"wangxiuping" ,
+              age:47
+            }
+        };
+        var obj1=clone(obj);
+        obj.mather.name="wangdeguang";
+        console.log(obj1.mather.name);
+        function clone(obj){
+            var obj2={};
+            for(p in obj){
+                if(typeof (obj[p])=="object"){
+                   obj2[p]=clone(obj[p]);
+                }else{
+                    obj2[p]=obj[p];
+                }
+            }
+            return obj2;
+        }
         /*第二种方法*/
         var obj={
             name:"wangyue",
