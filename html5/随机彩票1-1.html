@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <button id="btn">随机彩票</button>
+        <div id="lottery"></div>
+        <script>
+            var oBtn=document.querySelector("#btn");
+            var oLottery=document.querySelector("#lottery");
+            var obj={};/*对象，为hash与arr创建联系*/
+            oBtn.onclick=function(){
+                var arr=[];/*装七个随机数 */
+                var number=Math.random();/*取hash随机数*/
+                for(var i=0;i<7;i++){/*循环产生七个随机数*/
+                    var random=Math.floor(Math.random()*35)+1;/*0到1，包含0不包含1，1到35包括两边的数*/
+                    arr.push(random);/*将七组随机数添加到数组里*/
+                }
+                location.hash=number;/*获取hash的随机数*/
+                obj[number]=arr;/*将随机数与数组创建联系*/
+                oLottery.innerHTML=arr;/*将数组添加到div里*/
+            };
+            window.onhashchange=function(){/*变化时进行的操作*/
+                var hash=location.hash;/*取到当前hash值*/
+                var str=obj[hash.substr(1)];
+                /*去掉#号后得到hash随机数*/
+                if(str){
+                    oLottery.innerHTML=str;/*对应值*/
+                }else{
+                    oLottery.innerHTML="";/*第一个没数组*/
+                }
+            }
+        </script>
+    </body>
+</html>

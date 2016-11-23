@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <script>
+//        var date=new date();
+//        date.setdate(22);
+       /*设置*/
+        setCookie("name","aa",5);
+       function serCookie(key,value,day){
+            var str=key+"="+value+";";/*属性等于值*/
+           if(day){
+               var now=new Date;
+               now.setDate(now.getDate()+day);
+               str+="expires="+now;
+           }
+           document.cookie=str+="expires="+now;
+       }
+        /*获取*/
+            getcookie();
+        function getcookie(key){
+            var str=document.cookie;
+            var arr= str.split("; ");
+            for(var i=0;i<arr.length;i++){
+               var arr1=arr[i].split("=") ;
+                if(arr1[0]==key){
+                    return arr1[1];
+                }
+            }
+        }
+        /*移除*/
+        remove("name");
+        function remove(key){
+            setCookie(key,"",-1);
+        }
+    </script>
+
+    </body>
+</html>

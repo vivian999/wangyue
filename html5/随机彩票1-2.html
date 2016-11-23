@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <button id="btn">随机彩票</button>
+    <div id="lottery"></div>
+    <script>
+        var oBtn=document.querySelector("#btn");
+        var oLottery=document.querySelector("#lottery");
+        oBtn.onclick=function(){
+            var arr=[];/*装七个随机数 */
+            for(var i=0;i<7;i++){/*循环产生七个随机数*/
+                var random=Math.floor(Math.random()*35)+1;/*0到1，包含0不包含1，1到35包括两边的数*/
+                arr.push(random);/*将七组随机数添加到数组里*/
+            }
+            history.pushState(arr,"");
+            oLottery.innerHTML=arr;/*将数组添加到div里*/
+        };
+        window.onpopstate=function(e){
+            oLottery.innerHTML= e.state;
+        }
+
+    </script>
+    </body>
+</html>

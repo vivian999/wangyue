@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <button id="btn">随机彩票</button>
+        <div id="lottery"></div>
+        <script>
+            var oBtn=document.getElementById("btn");
+            var oLottery=document.getElementById("lottery");
+            var obj={};
+            oBtn.onclick=function(){
+                var arr=[];
+                var num=Math.random();
+                for(var i=0;i<7;i++){
+                   var random=Math.floor(Math.random()*35+1);
+                   arr.push(random) ;
+                }
+                location.hash=num;
+                obj[num]=arr;
+                oLottery.innerHTML=arr;
+            };
+            window.onhashchange=function(){
+                var hash=location.hash;
+                var str=obj[hash.substr(1)];
+                if(str){
+                    oLottery.innerHTML=str;
+                }else{
+                    oLottery.innerHTML="";
+                }
+            }
+        </script>
+    </body>
+</html>

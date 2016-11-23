@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <script>
+        /*设置*/
+        setCookie("name","wangyue",5);
+        function setCookie(key,value,day){
+            var str=key+"="+value+";";/*如何拼字符串，先把主要内容打出来，然后将非变量引起来，将变量前后加两个加号*/
+            if(day){
+                var now=new Date();
+                now.setDate(now.getDate()+day);
+                str+="expires="+now;//str=str+now;
+            }
+            document.cookie=str+="expires="+now;
+        }
+        /*获取*/
+        getCookie("name");
+        console.log(getCookie("name"));
+        function getCookie(key){
+            var str=document.cookie;
+            var arr=str.split("; ");
+            for(var i=0;i<arr.length;i++){
+                var arr1=arr[i].split("=");
+                if(arr1[0]==key){
+                    return arr1[1]
+                }
+            }
+        }
+        /*移除*/
+        remove("name");
+        function  remove(key){
+            setCookie(key,"",-1);/*今天以前就行*/
+        }
+    </script>
+    </body>
+</html>

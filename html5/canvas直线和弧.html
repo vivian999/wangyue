@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background: #000;
+            }
+            #canvas{
+                background: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500px" height="400px"></canvas>
+        <script>
+            var oCanvas=document.getElementById("canvas");
+            var  cxt=oCanvas.getContext("2d");
+            /*直线*/
+//            cxt.beginPath();
+//            cxt.strokeStyle="red";
+//            cxt.lineWidth=10;
+//            cxt.moveTo(50,50);
+//            cxt.lineTo(100,100);
+//            cxt.lineTo(50,100);
+//            cxt.closePath();
+//            cxt.stroke();
+            /*弧*/
+            cxt.beginPath();
+            cxt.arc(100,100,50,0,2*Math.PI,true);
+            cxt.closePath();
+            cxt.stroke();
+        </script>
+    </body>
+</html>
