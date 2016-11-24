@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            #container{
+                width: 750px;
+                height: 500px;
+                margin: 100px auto;
+                overflow: hidden;
+            }
+          #container li{
+              float: left;
+              width: 150px;/*每个li宽度平均分*/
+              height: 500px;
+              /*position: relative;*/
+              -webkit-transition: all 2s ease;/*过渡 让所有的图片有动画*/
+          }
+            #container:hover li{
+                width: 50px;/*鼠标刚放在container上的时候，所有的li宽度变成50px*/
+            }
+            #container li:hover{
+                width: 550px;/*鼠标所点的那个li宽度变成550px*/
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="container">
+            <li><img src="img/1.jpg" alt=""/></li>
+            <li><img src="img/2.jpg" alt=""/></li>
+            <li><img src="img/3.jpg" alt=""/></li>
+            <li><img src="img/4.jpg" alt=""/></li>
+            <li><img src="img/5.jpg" alt=""/></li>
+        </ul>
+    </body>
+</html>
