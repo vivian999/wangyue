@@ -16,19 +16,21 @@
                 height: 500px;
                 margin: 100px auto;
                 overflow: hidden;
+                display: -webkit-flex;
             }
             #container li{
-                float: left;
-                width: 150px;/*每个li宽度平均分*/
-                height: 500px;
-                /*position: relative;*/
                 -webkit-transition: all 2s ease;/*过渡 让所有的图片有动画*/
+                width: 150px;/*每个li宽度平均分*/
+                -webkit-flex-grow:1;
+
             }
             #container:hover li{
                 width: 50px;/*鼠标刚放在container上的时候，所有的li宽度变成50px*/
+                -webkit-flex-grow:1;
             }
             #container li:hover{
-                width: 550px;/*鼠标所点的那个li宽度变成550px*/
+                /*width: 550px;/!*鼠标所点的那个li宽度变成550px*!/*/
+                -webkit-flex-grow:12;
             }
         </style>
     </head>

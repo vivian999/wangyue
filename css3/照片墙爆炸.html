@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            html{
+                width: 100%;
+                height: 100%;
+            }
+            body{
+                width: 100%;
+                height: 100%;
+            }
+            #container{
+                width: 750px;
+                height: 500px;
+                background:red;
+                position: relative;
+                margin: 50px auto;
+            }
+            .img{
+                width: 125px;
+                height: 125px;
+                border: 5px solid #fff;
+                position: absolute;
+                cursor: pointer;
+            }
+            #reverse,#bomb{
+                width: 50px;
+                height: 30px;
+                background: red;
+                text-align: center;
+                line-height: 30px;
+            }
+            #reverse{
+                position: absolute;
+                top: 560px;
+                left: 50%;
+                margin-left: -50px;
+            }
+            #bomb{
+                position: absolute;
+                top: 560px;
+                left: 50%;
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+
+        </div>
+        <span id="reverse">翻转</span>
+        <span id="bomb">爆炸</span>
+        <script>
+            var oContainer=document.getElementById('container');
+            var oReverse=document.getElementById('reverse');
+            var oBomb=document.getElementById('bomb');
+            var sum=0;
+            var iNow = 0;
+            var index=0;
+            /*预加载，创建大小图片*/
+            for(var i=0;i<24;i++){
+                var oImg=new Image();
+                oImg.onload=function(){
+                    sum++;
+                    if(sum==24){
+                        loadSuccess()
+                    }
+                };
+                oImg.src="img/"+(i+1)+".jpg";
+            }
+            function loadSuccess(){
+                for(var i=0;i<4;i++){
+                    for(var j=0;j<6;j++){
+                        var oDiv=document.createElement('div');/*创建div，装大小图片*/
+                        oDiv.className="img";
+                        oDiv.pos={
+                            /*计算每张图片的目标位置*/
+                            left:j*125,
+                            top:i*125
+                        };
+                        oDiv.rowCol = {
+                            /*存入每个div的行列坐标，方便下面调用*/
+                            row: i,
+                            col: j
+                        };
+                        /*存入每张图片的索引*/
+                       oDiv.imgIndex=index;
+                        oDiv.style.background= 'url(img/'+(index+1)+'.jpg)';
+                        oContainer.appendChild(oDiv);
+                        index++;
+                    }
+                }
+                /*定位*/
+                var aDiv=oContainer.getElementsByTagName('div');
+                for(var i=0;i<24;i++){
+                    aDiv[i].style.left=aDiv[i].pos.left+"px";
+                    aDiv[i].style.top=aDiv[i].pos.top+"px";
+                }
+
+
+//                for(var i=0;i<24;i++){
+//                    var divLeft = -aDiv[i].rowCol.col * 125;
+//                    var divTop = -aDiv[i].rowCol.row* 125;
+//                    aDiv[i].style.background = 'url(img/'+(this.imgIndex+1)+'.jpg) '+divLeft+'px '+divTop+'px no-repeat';
+//                }
+
+//               setInterval(function(){
+//                    var oImg=aDiv.getElementsByTagName('img')[0];
+//                    var divLeft=-aDiv.rowCol.col*125;
+//                    var divTop=-aDiv.rowCol.row*125;
+//                   oImg.style.background = 'url("img/'+(iNow+1)+'.jpg") '+divLeft+'px '+divTop+'px no-repeat';
+//                },30);
+
+//                var arr=[];
+//                for(var i=0;i<24;i++){
+//                    arr.push(i);
+//                }
+//                arr.sort(function(){
+//                    return Math.random()-0.5;
+//                });
+//                var timer2=setInterval(function(){
+//                    var random=arr.pop();
+//                    var oSpan=aDiv[random].getElementsByTagName('span')[0];
+//                    var spanLeft=-aDiv[random].rowCol.col*125;
+//                    var spanTop=-aDiv[random].rowCol.row*125;
+//
+//                    oSpan.style.background = 'url("img/'+(iNow+1)+'.jpg") '+spanLeft+'px '+spanTop+'px no-repeat';
+//                    if(arr.length == 0){
+//                        clearInterval(timer2);
+//                    }
+//                },30)
+            }
+        </script>
+    </body>
+</html>
