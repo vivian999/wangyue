@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            h3{
+                width: 960px;
+                height: 100px;
+                background: gray;
+                text-align: center;
+                line-height: 100px;
+                margin: 0 auto;
+            }
+            #banner{
+                width: 960px;
+                height: 480px;
+                margin: 0 auto;
+                background: url(01.jpg) no-repeat center;
+                background-size:cover;
+            }
+            #banner img{
+                width: 960px;
+            }
+            #content{
+                width: 960px;
+                margin: 0 auto;
+            }
+            #left,#right{
+                height: 300px;
+                display: table;
+            }
+            #left p,#right p{
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+            }
+            #left{
+                width:630px;
+                float: left;
+                background: yellow;
+            }
+            #right{
+                width:300px;
+                float: right;
+                background: green;
+            }
+            #footer{
+                clear: both;
+            }
+            @media (max-width: 959px){
+                h3{
+                    width: 100%;/*让页眉标题页脚居中*/
+                }
+                #content{
+                    width: 100%;/*让包含两个小框的大框宽度自适应*/
+                }
+                #left{
+                    width: 67%;/*让小框宽度自适应*/
+                }
+                #right{
+                    width: 30%;/*让小框自适应*/
+                }
+                #banner{
+                    /*宽*/
+                    width:100% ;/*让包含两个小框的大框宽度自适应*/
+                    /*高*/
+                    padding-top: 56%;/*切换完的大图片的高除以宽*/
+                    height: 0;/*高度变成0*/
+                    background-image:url(01_s_2x.jpg);/*切换背景图片*/
+                }
+            }
+            @media (max-width: 480px){
+                #content{
+                    width: 100%;
+                }
+                #left,#right{
+                    width: 100%;
+                }
+                #banner{
+                    background-image:url(01_s.jpg);/*切换另一张图片*/
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h3 id="header">页头</h3>
+        <h3 id="title">标题</h3>
+        <div id="banner">
+        </div>
+        <div id="content">
+            <div id="left">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.
+                </p>
+            </div>
+            <div id="right">
+                <p>Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida rhoncus. Suspendisse vestibulum est eget dolor lobortis.</p>
+            </div>
+        </div>
+        <h3 id="footer">页脚</h3>
+    </body>
+</html>
