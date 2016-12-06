@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            /*样式重置*/
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            img{/*去除图片旁边的白色边*/
+                border: none;
+                display: block;
+            }
+            /*header start*/
+            header{
+                height:  100px;
+                padding: 0 29px;
+            }
+            #nav{
+                width: 40%;
+                float: left;
+                margin-top: 36px;
+            }
+            #nav .menu{
+                margin:0 0 0 3px;
+                display: inline-block;
+                font-size: 12px;
+                font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+            }
+            #logo{
+                width: 20%;
+                float: left;
+                position: relative;
+                height: 100%;
+            }
+            #logo img{
+                width:58px;
+                position: absolute;
+                top: 50%;
+                margin-top: -29px;
+                left: 50%;
+                margin-left: -29px;
+            }
+            #content{
+                width: 40%;
+                float:right;
+                text-align: right;
+                margin-top: 31px;
+            }
+            #content li.club{
+                font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                color: #4e4e4e;
+                /*margin-bottom:1px;*/
+            }
+            #content span{
+                font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                color: #4e4e4e;
+                /*margin-bottom:1px;*/
+            }
+            #content a{
+                font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+                white-space: nowrap;
+                cursor: pointer;
+                color: #b89f7a;
+                font-weight: 700;
+                font-size: 14px;
+            }
+            /*header end*/
+
+            /*image start*/
+            #image{
+                width: 100%;
+            }
+            #image img{
+                width:100%;/*不能设高，要不然高没变化*/
+                cursor: pointer;
+                display: none ;
+            }
+            #image .image1{
+                display: block;
+            }
+            /*image end*/
+            /*reward start*/
+            /*1*/
+            #reward{
+                width: 100%;
+                overflow: hidden;
+                background:#1f1f1f;
+            }
+            #reward-img img{
+                width: 100%;
+                height: auto;
+            }
+            /*2*/
+
+            #reward #container{
+                text-align: center;
+                line-height: 50px;
+                padding:90px 35px;/*外边*//*整体距离上边和下边的距离，相当于设高*/
+                margin: 0 auto;/*整体居中*/
+            }
+            #reward #container h1{
+                font-size: 30px;
+                color: white;
+            }
+            #reward #container p{
+                font-size: 18px;
+                color: white;
+            }
+            #reward #btn button{
+                margin: 50px 0 0 30px;/*里边*/
+                width: 114px;
+                height: 50px;
+                background: #1f1f1f;
+                border: 2px solid #a98e67;
+                color: #a98e67;
+                font-weight: 900;
+                font-size: 15px;
+            }
+            #reward #btn button:hover{
+                background: #a98e67;
+                color: #FFFFFF;
+            }
+            /*reward end*/
+            /*app start*/
+            #app{
+                position: relative;
+                background: #e0e0e0;
+            }
+            #app #app-content{
+                width: 1130px;
+                margin: 0 auto;
+                /*padding-left:20px;*/
+            }
+            #app #app-text{
+                width:55%;
+                padding: 210px 0;
+            }
+            #app #app-content h6{
+                font-size: 12px;
+                color: #a98e67;
+                margin-bottom: 15px;
+            }
+            #app #app-content p{
+                margin-bottom: 130px;
+                font-size: 26px;
+                line-height: 40px;
+            }
+            #app #app-img img{
+                width: 47%;
+                margin-top: 100px;
+                position: absolute;
+                right: 0;
+                bottom : 80px;
+
+            }
+            #app #app-btn{
+                margin-top: 200px;
+                margin-left: 15%;
+            }
+            #app #app-btn button{
+                width: 130px;
+                height: 50px;
+                border: 2px solid #a98e67;
+                background: #e0e0e0;
+                color: #a98e67;
+                margin-right: 20px;
+            }
+            #app #app-btn button:hover{
+                background:#a98e67;
+                color: #FFFFFF;
+            }
+            #app #app-download{
+                display: none;
+            }
+            /*app end*/
+            /*mosaic start*/
+            #mosaic{
+                width: 100%;
+            }
+            #mosaic .mi{
+                width: 50%;
+                float: left;
+                position: relative;
+            }
+            #mosaic .mi img{
+                width:100%;
+            }
+            #mosaic-img1{
+                float: left;
+            }
+            #mosaic-img2{
+                float: right;
+            }
+            #mosaic .mi .con{
+                position: absolute;
+                left:0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #mosaic .mi .icon{
+                display: table;
+                width: 100%;
+                height: 100%;
+            }
+
+            #mosaic .mi .mosaic-content{
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+            }
+            /*mosaic end*/
+            /*barista start*/
+            #barista{
+                height: 520px;
+                padding: 80px 16px;
+                background-color: #f5f5f5;
+                clear: both;
+                /*position: relative;*/
+                /*left: 0;*/
+                top: 0;
+                overflow: hidden;
+            }
+            #barista #barista-container{
+                width:1170px;
+                height: 185px;
+                padding-bottom:60px;
+                text-align: center;
+                margin: 0 auto;
+            }
+            #barista #barista-container h3{
+                font-weight: 900;
+                font-size: 13px;
+                line-height: 22px;
+                text-transform: uppercase;
+                color: #a98e67;
+                letter-spacing: 3px;
+            }
+            #barista #barista-container h2{
+                margin: 20px 0;
+                letter-spacing: normal;
+                font-size: 30px;
+                font-weight: 400;
+                line-height: 38px;
+                color: #3d3d3d;
+                text-transform: none;
+                font-family: AvenirLight, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+            }
+            #barista #barista-container hr{
+                margin:0 auto;
+                text-align: center;
+                width: 150px;
+                font-size: 22px;
+                line-height: 1.62;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: #525252;
+            }
+            #barista #barista-container p{
+                margin-top:14px;
+                color: #525252;
+                font-size: 18px;
+                line-height: 28px;
+            }
+            #barista #barista-images{
+                width: 3000px;
+                height: 280px;
+                position:relative;
+                left: 0;
+            }
+            #barista #barista-images img{
+                float: left;
+                margin: 0 10px 10px 0;
+                width: 280px;
+            }
+            #barista #barista-round{
+                width: 100px;
+                height: 20px;
+                margin:20px auto;
+            }
+            #barista #barista-round span{
+                float: left;
+                width: 10px;
+                height: 10px;
+                border-radius:50%;
+                background: gray;
+                margin-right: 5px;
+                display: inline-block;
+            }
+            #barista #barista-round span.tabs{
+                display:none;
+            }
+            #barista #barista-round span.selected {
+                background: #a98e67;
+            }
+            /*#barista #barista-images{*/
+                /*position: relative;*/
+            /*}*/
+            #barista #barista-images .cons{
+                float: left;
+                margin-right: 10px;
+                margin-top: 0;
+                height: 280px;
+                width: 280px;
+                position:relative;
+                top: 0;
+                left: 0;
+            }
+            #barista #barista-images .barista-text{
+                position: absolute;
+                width: 280px;
+                height: 280px;
+            }
+            #barista #barista-images .barista-box{
+                display:table;
+                width: 100%;
+                height: 100%;
+            }
+            #barista #barista-images .barista-box .font{
+                display:table-cell;
+                vertical-align:bottom;
+                /*text-align: center;*/
+            }
+
+
+            /*barista end*/
+            /*reserve start*/
+            #reserve{
+                padding: 40px 0;
+                clear: both;/*清除上边的浮动*/
+                background: #1f1f1f;
+            }
+            #reserve #reserve-container{
+                width: 1140px;
+                margin: 0 auto;
+            }
+            #reserve #reserve-container #reserve-img{
+                width:570px;
+                margin: 0;
+                height: 528px;
+                display: inline-block;
+            }
+            #reserve #reserve-container #reserve-img img{
+                width: 480px;
+                height: 528px;
+            }
+
+            #reserve #reserve-container #reserve-text{
+                width: 570px;
+                /*height: 302px;*/
+                float: right;
+                padding: 113px 0;
+                text-align: center;
+            }
+            #reserve #reserve-container #reserve-text h6{
+                font-weight: 900;
+                font-size: 13px;
+                line-height: 22px;
+                text-transform: uppercase;
+                color: #a98e67;
+                letter-spacing: 3px;
+                margin: 28px 0 13px 0;
+                font-family: AvenirBlack, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+            }
+            #reserve #reserve-container #reserve-text p{
+                font-size: 26px;
+                margin-bottom: 14px;
+                line-height: 40px;
+                color: #3d3d3d;
+                font-family: AvenirLight, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+            }
+            #reserve #reserve-container #reserve-text #reserve-btns button{
+                margin: 7px 14px 7px 0 ;/*里边*/
+                width: 114px;
+                height: 50px;
+                background: #1f1f1f;
+                border: 2px solid #a98e67;
+                color: #a98e67;
+                font-weight: 900;
+                font-size: 15px;
+            }
+            #reserve #reserve-container #reserve-text #reserve-btns button:hover{
+                background:#a98e67;
+                color: white;
+            }
+            /*reverse end*/
+            @media (max-width:1220px){
+                #barista #barista-round span.three{
+                    display:block;
+                }
+            }
+            @media (max-width: 1200px){
+                /*app*/
+                #app #app-content{
+                    width: 918px;
+                }
+                /*barista end*/
+                #barista #barista-container{
+                    width:970px;
+                    height: 185px;
+                    padding-bottom:60px;
+                    text-align: center;
+                    /*margin: 0 auto;*/
+                }
+                /*reverse*/
+                #reserve #reserve-container{
+                    width: 940px;
+                    height: 528px;
+                    margin: 0 auto;
+                }
+                #reserve #reserve-container #reserve-img{
+                    width:480px;
+                    height: 528px;
+                    margin: 0;
+                    display: inline-block;
+                }
+                #reserve #reserve-container #reserve-text{
+                    width: 460px;
+                    height: 528px;
+                    float: right;
+                    padding: 113px 0;
+                    text-align: center;
+                }
+            }
+            @media (max-width:991px){
+                /*image*/
+                #image .image2{
+                    display: block;
+                }
+                #image .image1{
+                    display: none;
+                }
+                /*app*/
+                #app #app-content{
+                    width: 720px;
+                }
+                /*barista*/
+                #barista #barista-container{
+                    width:750px;
+                    height: 185px;
+                    padding-bottom:60px;
+                    text-align: center;
+                    /*margin: 0 auto;*/
+                }
+                /*reverse*/
+                #reserve{
+                    padding: 40px 0;
+                }
+                #reserve #reserve-container{
+                    width: 720px;
+                    height: 623px;
+                    margin: 0 auto;
+
+                }
+                #reserve #reserve-container #reserve-img{
+                    width:480px;
+                    margin: 0;
+                    display: inline-block;
+                }
+
+                #reserve #reserve-container #reserve-text{
+                    width: 240px;
+                    float: right;
+                    padding: 0;
+                    text-align: center;
+                }
+                #reserve #reserve-container #reserve-text #reserve-btns{
+                    margin-top: 32px;
+                }
+
+            }
+            @media (max-width:925px){
+                #barista #barista-round span.tabs{
+                    display:inline-block;
+                }
+            }
+
+            @media (max-width:767px) {
+                /*header*/
+                #content li.club {
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+
+                #content li a {
+                    font-size: 12px;
+                }
+
+                #content span {
+                    font-size: 12px;
+                }
+
+                /*reward*/
+                #reward #reward-img img {
+                    height: 135px;
+                    width: auto;
+                }
+
+                #reward #container {
+                    margin: 0 auto;
+                }
+
+                #reward #btn button {
+                    width: 100%;
+                    margin-top: 10px;
+                    margin-left: 0;
+                }
+
+                /*app*/
+                #app {
+                    padding: 30px;
+                }
+
+                #app #app-content {
+                    width: 100%;
+                }
+
+                #app #app-text {
+                    padding: 80px 0 0 0;
+                    width: 100%;
+                }
+
+                #app #app-text p {
+                    margin: 10px;
+                }
+
+                #app #app-img img {
+                    float: right;
+                    width: 90%;
+                    position: static;
+                    margin-top: 0;
+                }
+
+                #app #app-download {
+                    display: block;
+                    clear: both;
+                }
+
+                #app #app-download button {
+                    width: 200px;
+                    height: 50px;
+                    border: 2px solid #a98e67;
+                    background: #e0e0e0;
+                    color: #a98e67;
+                    margin: 0 0 10% 0;
+                    font-size: 15px;
+                }
+
+                #app #app-btn {
+                    display: none;
+                }
+                 /*barista*/
+                #barista #barista-container{
+                    width:100%;
+                    /*height: 185px;*/
+                    padding-bottom:60px;
+                    text-align: center;
+                    /*margin: 0 auto;*/
+                }
+
+                /*mosaic*/
+                #mosaic .mi {
+                    width: 100%;
+                    height: 100%;
+                    float: none;
+                }
+
+                #mosaic .mi img {
+                    border: none;
+                    display: block;
+                }
+                /*reverse*/
+                #reserve{
+                    width: 100%;
+                    height: auto;
+                }
+                #reserve #reserve-container {
+                    width: 90%;
+                    margin: 0 auto;height: auto;
+                }
+
+                #reserve #reserve-container #reserve-img{
+                    width: 90%;
+                    height: auto;
+                    margin: 0 auto;
+                }
+
+                #reserve #reserve-container #reserve-img img{
+                    width: 100%;
+                }
+                #reserve #reserve-container #reserve-text {
+                    width: 100%;
+                    height: auto;
+                    float: none;
+                    margin: 0 auto;
+                }
+
+                #reserve #reserve-container #reserve-text #reserve-box {
+                    width: 90%;
+                    height: auto;
+                    display: block;
+                    float: none;
+                    margin: 0 auto;
+                }
+
+                #reserve #reserve-container #reserve-text #reserve-btns button {
+                    width: 100%;
+                    margin-left: 0;
+                }
+            }
+            @media (max-width:400px){
+                /*header*/
+                #logo img{
+                    width: 100%;
+                    margin-top: -50%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    <script>
+        //console.log(navigator.userAgent);
+        // console.log(/mobile|Android/ig.test(navigator.userAgent));
+        function isMobile(){
+            if(/mobile|Android/ig.test(navigator.userAgent)){
+                return true;
+            }
+            return false;
+        }
+        var script = document.createElement('script');
+        //    if(isMobile()){
+        //        script.src="js/zepto.min.js";
+        //    }else{
+        //        script.src="js/jquery.min.js";
+        //    }
+        script.onload = function(){
+            var idxJs =  document.createElement('script');
+            idxJs.src="js/index.js";
+            document.body.appendChild(idxJs);
+        }
+        script.src = isMobile()?"js/zepto.min.js": "js/jquery.min.js";
+        document.body.appendChild(script);
+    </script>
+        <header>
+            <ul id="nav">
+                <li><img src="starbucks/menu_icon.svg" alt=""/></li>
+                <li class="menu">菜单</li>
+            </ul>
+            <div id="logo">
+                <img src="starbucks/logo.png" alt=""/>
+            </div>
+            <ul id="content">
+                <li class="club">星享俱乐部</li>
+                <li><a href="#">登录</a><span>&nbsp;或&nbsp;</span><a href="#">注册</a></li>
+            </ul>
+        </header>
+        <div id="banner">
+            <div id="image">
+                <img class="image1" src="starbucks/kv-desktop-cn.jpg" alt=""/>
+                <img class="image2" src="starbucks/kv-mobile-cn-20161027171809.jpg" alt=""/>
+            </div>
+            <div id="reward">
+                <div id="reward-img">
+                    <img src="starbucks/rewards.jpg" alt=""/>
+                </div>
+                <div id="container">
+                    <h1>星享俱乐部</h1>
+                    <p>开启您的星享之旅，星星越多、会员等级越高、好礼越丰富</p>
+                    <div id="btn">
+                        <button>注册</button>
+                        <button>登录</button>
+                    </div>
+                </div>
+            </div>
+            <div id="app">
+                <div id="app-content">
+                    <div id="app-text" >
+                        <h6>星巴克中国官方应用</h6>
+                        <p>更新或下载全新星巴克中国官方APP，开启更便捷的星巴克体验。将新购买的星礼卡轻松关联至您的账户，即时通过手机进行移动支付，查看消费记录，管理卡片。</p>
+                        <div id="app-btn">
+                            <button>IOS下载</button>
+                            <button>ANDROID下载</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="app-img">
+                    <img src="starbucks/mobile-app.png" alt=""/>
+                </div>
+                <div id="app-download">
+                    <button>下载应用</button>
+                </div>
+            </div>
+            <div id="mosaic">
+                <div id="mosaic-img1" class="mi">
+                    <img src="starbucks/20e42950-aa53-11e6-9345-bca7c77dab11.jpeg" alt=""/>
+                    <div class="con">
+                        <div class="icon">
+                            <div class="mosaic-content">
+                                <h6>星巴克天猫旗舰店限量供应中</h6>
+                                <h3>随时随地来一杯手冲心意 </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="mosaic-img2" class="mi">
+                    <img src="starbucks/homepage-grid.jpg" alt=""/>
+                    <div class="con">
+                        <div class="icon">
+                            <div class="mosaic-content">
+                                <h6>圣诞季 送出你的心意</h6>
+                                <h3>点击了解更多</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="barista">
+                <div id="barista-container">
+                    <h3>星巴克经典</h3>
+                    <h2>咖啡师的最爱</h2>
+                    <hr/>
+                    <p>回溯多年历史，星巴克的技巧纯熟的咖啡师一直用心制作星巴克的经典与饮品</p>
+                </div>
+                <div id="barista-images">
+                    <div class="cons">
+                        <img src="starbucks/green-tea-cream-frappuccino-20151022185851.jpeg" alt=""/>
+                        <div class="barista-text">
+                            <div class="barista-box">
+                                <div class="font">
+                                    <h3>手工调制浓缩咖啡</h3>
+                                    <p>馥芮白</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cons">
+                        <img src="starbucks/hot-caramel-macchiato-20151022185811.jpg" alt=""/>
+                        <div class="barista-text">
+                            <div class="barista-box">
+                                <div class="font">
+                                    <h3>手工调制浓缩咖啡</h3>
+                                    <p>馥芮白</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cons">
+                        <img src="starbucks/hot-green-tea-latte-20160819155511.jpg" alt=""/>
+                        <div class="barista-text">
+                            <div class="barista-box">
+                                <div class="font">
+                                    <h3>手工调制浓缩咖啡</h3>
+                                    <p>馥芮白</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cons">
+                        <img src="starbucks/hot-extra-shot-mocha-20151022185836.jpg" alt=""/>
+                        <div class="barista-text">
+                            <div class="barista-box">
+                                <div class="font">
+                                    <h3>手工调制浓缩咖啡</h3>
+                                    <p>馥芮白</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cons">
+                        <img src="starbucks/starbucks-flatwhite-20151026112356.jpg" alt=""/>
+                        <div class="barista-text">
+                            <div class="barista-box">
+                                <div class="font">
+                                    <h3>手工调制浓缩咖啡</h3>
+                                    <p>馥芮白</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cons">
+                        <img src="starbucks/Starbucks-Hazelnut-Latte-20150924183645.jpg" alt=""/>
+                        <div class="barista-text">
+                            <div class="barista-box">
+                                <div class="font">
+                                    <h3>手工调制浓缩咖啡</h3>
+                                    <p>馥芮白</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div id="barista-round">
+                    <span class="selected"></span>
+                    <span></span>
+                    <span class="tabs three"></span>
+                    <span class="tabs four"></span>
+                </div>
+            </div>
+         <div id="reserve">
+            <div id=reserve-container>
+                <div id="reserve-img">
+                    <img  src="starbucks/homepage-reserve.png" alt=""/>
+                </div>
+
+                <div id="reserve-text">
+                    <div id="reserve-box">
+                        <h6>我们优质的咖啡产品</h6>
+                        <p>我们持续在全世界各地寻找优质而稀少的咖啡豆，我们喜爱与您分享我们的新发现。我们在星巴克位于总部西雅图的星巴克臻选™咖啡烘焙工坊及品鉴馆为您精心烘焙星巴克臻选™咖啡。</p>
+                        <div id="reserve-btns">
+                            <button>了解更多</button>
+                            <button>在购买这里</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+    </body>
+    <script>
+        $(function(){
+            eventType = isMobile() ?'tap':'click';
+            $("#barista-round span").on(eventType,function(){
+                var $index=$(this).index();
+                var $imgNum=$("#barista-images img").size();
+                var $tabNum=$("#barista-round span:visible").size();
+                var $num=Math.ceil($imgNum/$tabNum);
+                var iLeft=$num*290*$index;
+                if($index==$tabNum-1){
+                    iLeft=$("#barista").width()-$("#barista-images").width();
+                }
+                $("#barista-images").animate({
+                    left:iLeft
+                })
+            });
+            $(window).resize(function(){
+                iLeft=$("#barista").width()-$("#barista-images").width();
+                $("#barista-images").css('left',iLeft);
+            })
+
+        })
+    </script>
+
+</html>

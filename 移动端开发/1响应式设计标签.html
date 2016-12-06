@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
         <style>
             *{
                 margin: 0;
@@ -17,27 +17,24 @@
                 margin: 0 auto;
             }
             #banner{
-                width: 960px;
-                height: 480px;
+                width: 960px;/*img标签不用设高*/
                 margin: 0 auto;
-                background: url(01.jpg) no-repeat center;
-                background-size:cover;
             }
             #banner img{
-                width: 960px;
+                width: 960px;/*给图片设宽，高就会跟着等比例进行缩放*/
             }
             #content{
                 width: 960px;
                 margin: 0 auto;
             }
-            #left,#right{
+            #left,#right{/*父元素*/
                 height: 300px;
-                display: table;
+                display: table;/*1*/
             }
-            #left p,#right p{
-                display: table-cell;
-                vertical-align: middle;
-                text-align: center;
+            #left p,#right p{/*子元素*/
+                display: table-cell;/*2*/
+                vertical-align: middle;/*3*/
+                text-align: center;/*4*/
             }
             #left{
                 width:630px;
@@ -54,24 +51,22 @@
             }
             @media (max-width: 959px){
                 h3{
-                    width: 100%;/*让页眉标题页脚居中*/
+                    width: 100%;
                 }
                 #content{
-                    width: 100%;/*让包含两个小框的大框宽度自适应*/
+                    width: 100%;
                 }
                 #left{
-                    width: 67%;/*让小框宽度自适应*/
+                    width: 67%;
                 }
                 #right{
-                    width: 30%;/*让小框自适应*/
+                    width: 30%;
                 }
                 #banner{
-                    /*宽*/
-                    width:100% ;/*让包含两个小框的大框宽度自适应*/
-                    /*高*/
-                    padding-top: 56%;/*切换完的大图片的高除以宽*/
-                    height: 0;/*高度变成0*/
-                    background-image:url(01_s_2x.jpg);/*切换背景图片*/
+                    width:100% ;
+                }
+                #banner img{
+                    width: 100%;
                 }
             }
             @media (max-width: 480px){
@@ -81,9 +76,6 @@
                 #left,#right{
                     width: 100%;
                 }
-                #banner{
-                    background-image:url(01_s.jpg);/*切换另一张图片*/
-                }
             }
         </style>
     </head>
@@ -91,6 +83,7 @@
         <h3 id="header">页头</h3>
         <h3 id="title">标题</h3>
         <div id="banner">
+            <img src="01.jpg" alt="">
         </div>
         <div id="content">
             <div id="left">
