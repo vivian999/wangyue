@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #container{
+                width: 1000px;
+                height: 550px;
+                border: 1px solid black;
+                margin: 50px auto;
+            }
+            #ground{
+                width: 1000px;
+                height: 500px;position: relative;
+            }
+            #control{
+                width: 1000px;
+                height: 50px;
+            }
+            #brand{
+                line-height: 50px;
+                float: left;
+            }
+            #btns{
+                float: right;
+            }
+            .block{
+                float: left;
+                width: 20px;
+                height: 20px;
+                background: orange;
+            }
+            .snake{
+                background: red;
+                position: absolute;
+            }
+            .food{
+                background:blue;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="ground">
+
+            </div>
+            <div id="control">
+                <div id="brand">
+
+                </div>
+                <div id="btns">
+                    <button id="pause">暂停</button>
+                    <button id="start">开始</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var oGround=document.getElementById("ground");
+            var oPause=document.getElementById("pause");
+            var oStart=document.getElementById("start");
+            var direction="right";
+            var bDie=false;
+            var bPause=false;/*没暂停*/
+            oStart.onclick=function(){
+                if(bDie){
+                    oGround.removeChild(oFoDiv);
+                    for(var i=0;i<snakeBody.length;i++){
+                        oGround.removeChild(snakeBody[i]);
+                    }
+                    snakeBody = [];
+                    direction="right";
+                    creatsnake();
+                    creatfood();
+                    bDie=false;
+                    timer = setInterval(move,200);
+                }else{
+                    if(bPause){
+                        bPause = false;
+                        timer = setInterval(move,200);/*true时执行*/
+                    }
+                }
+            };
+            oPause.onclick=function(){
+                clearInterval(timer);
+                bPause=true;/*暂停了*/
+            };
+            /*创建操场*/
+            var snakeBody=[];
+            for(var i=0;i<50*25;i++){
+                var oGrDiv=document.createElement("div");
+                oGrDiv.className="block";
+
+                oGround.appendChild(oGrDiv);
+            }
+            /*创建蛇*/
+            function creatsnake(){
+                for(var i=0;i<3;i++){
+                    var oSnaDiv=document.createElement("div");
+                    oSnaDiv.className="block snake";
+                    oSnaDiv.style.left=60-i*20+"px";
+                    oSnaDiv.style.top=60+"px";
+                    snakeBody.push(oSnaDiv);
+                    oGround.appendChild(oSnaDiv);
+                }
+            }
+            creatsnake();
+            /*创建食物*/
+           var oFoDiv=null;
+            function creatfood(){
+                var bFlag=true;/*没在蛇上*/
+                var oFoLeft;
+                var oFoTop;
+                do{
+                    bFlag=true;
+                    oFoLeft=parseInt(Math.random()*50)*20;
+                    oFoTop=parseInt(Math.random()*25)*20;
+                    for(var i=0;i<snakeBody.length;i++){
+                        if(snakeBody[i]==oFoLeft&&snakeBody[i]== oFoTop){
+                            bFlag=false;
+                        }
+                    }
+                }while(bFlag=false);/*true就再次执行上边的代码，false就向下执行*/
+                oFoDiv=document.createElement("div");
+                oFoDiv.className="block food";
+                oFoDiv.style.left=oFoLeft+"px";
+                oFoDiv.style.top= oFoTop+"px";
+                oGround.appendChild(oFoDiv);
+            }
+            creatfood();
+
+            /*蛇移动*/
+            var next = null;
+            function move(){
+                var snakeHead=snakeBody[0];/*取出头部，为了确定头部*/
+                if(direction=="right"){
+                    next={
+                        left:snakeHead.offsetLeft+20,
+                        top:snakeHead.offsetTop
+                    }
+                }else if(direction=="left"){
+                    next={
+                        left:snakeHead.offsetLeft-20,
+                        top:snakeHead.offsetTop
+                    }
+                }else if(direction=="down"){
+                    next={
+                        left:snakeHead.offsetLeft,
+                        top:snakeHead.offsetTop+20
+                    }
+                }else if(direction=="up"){
+                    next={
+                        left:snakeHead.offsetLeft,
+                        top:snakeHead.offsetTop-20
+                    }
+                }
+                /*蛇吃食物，增长身体*/
+                if(oFoDiv.offsetLeft==next.left&&oFoDiv.offsetTop==next.top){/*食物与下一个进行比较*/
+                        oFoDiv.className="block snake";
+                        snakeBody.unshift(oFoDiv);
+                        creatfood();
+                }else{/*刚吃的时候不移动，吃完以后的下次move移动*/
+                    var oDiv=snakeBody.pop();
+                    oDiv.style.left=next.left+"px";
+                    oDiv.style.top=next.top+"px";
+                    snakeBody.unshift(oDiv);
+               }
+                /*判断能否吃到自己 */
+                for(var i=1;i<snakeBody.length;i++){
+                    snakeHead=snakeBody[0];
+                    if(snakeHead.offsetLeft==snakeBody[i].offsetLeft&&/*蛇头部与蛇身体的每一节进行比较*/
+                            snakeHead.offsetTop==snakeBody[i].offsetTop){
+                        clearInterval(timer);
+                        alert("你死啦");
+                        bDie=true;
+                    }
+
+                }
+                /*蛇撞墙死*/
+                if(snakeHead.offsetTop<20||snakeHead.offsetTop>460||snakeHead.offsetLeft<20||snakeHead.offsetLeft>960){
+                    clearInterval(timer);
+                    bDie=true;
+                }
+
+            }
+           var timer=setInterval(move,200);
+            /*控制蛇的位置*/
+            document.onkeydown=function(e){
+                e = e || window.event;
+                var kc = e.which || e.keyCode;
+                if(kc==37&&direction!='right'){
+                    direction="left";
+                }else if(kc==38&&direction!='down'){
+                    direction="up";
+                }else if(kc==39&&direction!='left'){
+                    direction="right";
+                }else if(kc==40&&direction!='up'){
+                    direction="down";
+                }
+            }
+        </script>
+    </body>
+</html>
