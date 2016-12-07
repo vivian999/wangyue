@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+    <ul>
+        <li class="a">jasmine</li>
+        <li class="b">candice</li>
+        <li class="a b">lily</li>
+    </ul>
+    <script>
+
+        function getClassName(classn,context){
+
+            context=context||document;
+            if(document.getElementByClassName){
+                context.getElementsByClassName(classn)
+            }else{
+                var result=[];
+                var all=context.getElementsByTagName("*");
+                var reg=new RegExp("\\b"+classn+"\\b");
+                for(var i=0;i<all.length;i++){
+                    if(reg.test(all[i].className)){
+                            result.push(all[i])
+                    }
+                }
+                return result;
+            }
+        }
+
+
+        var oUl=document.getElementsByTagName("ul")[0];
+
+        var aLi=getClassName("a",oUl);
+            for(var i=0;i<aLi.length;i++){
+               aLi[i].style.background="red"
+            }
+
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>regexp</title>
+    </head>
+    <body>
+    <script>
+        var str1="aSdfjkl";
+        var str2="asd";
+        var reg1=/asd/i;/*不支持变量*/
+        var reg2=new RegExp(str2,"ig");/*支持变量*/
+        console.log(reg2.test(str1));
+        console.log(reg1.test(str1))
+    </script>
+    </body>
+</html>
