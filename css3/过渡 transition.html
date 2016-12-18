@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            #div1{
+                width: 100px;
+                height: 100px;
+                background: blue;
+                -webkit-transition:width 1s ease-in-out 2s;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <script>
+            var oDiv1=document.getElementById('div1');
+            oDiv1.onclick=function(){
+                oDiv1.style.width='500px';
+                oDiv1.style.height='500px';
+            }
+        </script>
+    </body>
+</html>

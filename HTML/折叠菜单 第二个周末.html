@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;;
+        }
+        #menu h3 {
+            width: 100px;
+            height: 30px;
+            background: #000;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+        }
+        #menu .sub-menu{
+            display: none;
+        }
+    </style>
+    <body>
+        <ul id="menu">
+            <li class="main-menu">
+                <h3 >换离去</h3>
+                <ul class="sub-menu">
+                    <li>001</li>
+                    <li>002</li>
+                    <li>003</li>
+                </ul>
+            </li>
+            <li class='main-menu'>
+                <h3 >甲流去</h3>
+                <ul class="sub-menu">
+                    <li>001</li>
+                    <li>002</li>
+                    <li>003</li>
+                </ul>
+            </li>
+        </ul>
+        <script>
+           var oMenu=document.getElementById('menu');
+            var aLi=oMenu.getElementsByTagName('li');
+
+            for(i=0;i<aLi.length;i++) {
+                if (aLi[i].className == 'main-menu') {
+                    aLi[i].onclick = function () {
+                        var oSubmenu = this.getElementsByTagName('ul')[0];
+                        if (oSubmenu.style.display == 'block') {
+                            oSubmenu.style.display = 'none'
+                        } else {
+                            oSubmenu.style.display = 'block'
+                        }
+                    }
+                }
+            }
+        </script>
+
+    </body>
+</html>

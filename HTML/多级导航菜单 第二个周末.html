@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            #menu .main-menu{
+                background:gray ;
+                width: 100px;
+                height: 30px;
+                float: left;
+                margin-right: 5px;
+            }
+            #menu .main-menu a{
+                width: 100%;
+                height: 100%;
+                display: block;
+                text-align: center;
+                line-height: 30px;
+            }
+            #menu .sub-menu{
+                display: none;
+            }
+            #menu .sub-menu li{
+                background: yellow;
+                border-top: 1px dashed black;
+            }
+        </style>
+    </head
+    <body>
+        <ul id="menu">
+            <li class="main-menu"><a href="#">link1</a>
+                <ul class="sub-menu">
+                    <li>link1</li>
+                    <li>link2</li>
+                    <li>link3</li>
+                </ul>
+            </li>
+            <li class="main-menu"><a href="#">link2</a>
+                <ul class="sub-menu">
+                    <li>link1</li>
+                    <li>link2</li>
+                    <li>link3</li>
+                </ul>
+            </li>
+        </ul>
+        <script>
+            var oMnu=document.getElementById('menu');
+            var aLi=document.getElementsByTagName('li');
+
+
+            for(i=0;i<aLi.length;i++){
+                if(aLi[i].className='main-menu'){
+                    aLi[i].onmouseover=function(){
+                        var aSubmenu=this.getElementsByTagName('ul')[0];
+                        aSubmenu.style.display='block'
+                    };
+                   aLi[i].onmouseout=function(){
+                       var aSubmenu=this.getElementsByTagName('ul')[0];
+                        aSubmenu.style.display='none'
+                    };
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

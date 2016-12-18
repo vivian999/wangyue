@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #container{
+                width: 400px;
+                height: 400px;
+                border:1px solid black;
+                overflow: hidden;
+                position: relative;
+            }
+            #content{
+                width: 380px;
+                background: red;
+                position: relative;/*这个定位才能移动*/
+           }
+            #scroll-bar{
+                width:20px ;
+                height: 400px;
+                background :yellow;
+                position: absolute;
+                top: 0;
+                left: 380px;
+            }
+            #scroll-btn{
+                width: 20px;
+                height: 20px;
+                background: green;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="container">
+        <div id="content">再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再vvv再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再vv再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再见再</div>
+        <div id="scroll-bar">
+            <div id="scroll-btn"></div>
+        </div>
+    </div>
+    <script>
+        var oContainer=document.getElementById('container');
+        var oContent=document.getElementById('content');
+        var oScrollbar=document.getElementById('scroll-bar');
+        var oScrollbtn=document.getElementById('scroll-btn');
+
+       oScrollbtn.onmousedown=function(e){
+            e=e||window.event;
+            var iDisY= e.clientY-oScrollbtn.offsetTop;
+        document.onmousemove=function(e) {
+            e = e || window.event;
+            var iTop = e.clientY - iDisY;
+            if(iTop<0){
+                iTop=0;
+            }
+            if(iTop>oScrollbar.offsetHeight - oScrollbtn.offsetHeight){
+                iTop=oScrollbar.offsetHeight - oScrollbtn.offsetHeight;
+            }
+            oScrollbtn.style.top = iTop + 'px';
+            var fScaleY = iTop / (oScrollbar.offsetHeight - oScrollbtn.offsetHeight);
+            oContent.style.top = (oContainer.offsetHeight - oContent.offsetHeight) * fScaleY + 'px';
+            return false;
+        }
+        document.onmouseup=function(){
+            document.onmousemove=null;
+        }
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
+    </body>
+</html>

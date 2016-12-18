@@ -56,13 +56,14 @@
             var oImg=document.getElementById("img");
             var oBomb=document.getElementById("bomb");
             var iNow=0;
-            var bFlag=true;
+            var bFlag=true;/*此行为规定，true为执行，false为不执行。刚进来的时候为true执行，一进来就变成false，
+            监听器强制规定只有当最后一张图片执行完成以后才变成true,也就是这时才执行下一个操作*/
                 oReverse.onclick=function(){
                     if(bFlag){
                         bFlag=false;
-                        oImg.innerHTML="";
+                        oImg.innerHTML="";/*每次点击都将上一次创建的清空*/
                         iNow++;
-                        oImg.style.background = 'url(img/'+ (iNow) +'.jpg)';
+                        oImg.style.background = 'url(img/'+ (iNow) +'.jpg)';/*当前图片作为背景*/
                         if(iNow==5){
                             iNow=0;
                         }
@@ -74,8 +75,8 @@
                                 oDiv.style.position = "absolute";
                                 oDiv.style.left = j * 125 + "px";
                                 oDiv.style.top = i * 125 + "px";
-                                oDiv.style.background = "url(img/"+(iNow + 1)+".jpg) "+(-j*125)+"px "+(-i*125)+"px";
-                                oDiv.style.WebkitTransform = "rotateY(-180deg)";
+                                oDiv.style.background = "url(img/"+(iNow + 1)+".jpg) "+(-j*125)+"px "+(-i*125)+"px";/*问题：上次点击，还是当前点击翻转*/
+                                oDiv.style.WebkitTransform = "rotateY(-180deg)";/*下一张图片翻为背面，然后翻转*/
                                 oDiv.style.WebkitTransition = "all 1s ease";
                                 oDiv.style.WebkitBackfaceVisibility ='hidden';
                                 oImg.appendChild(oDiv);
@@ -91,7 +92,7 @@
                                 clearInterval(timer);
                             }
                             aDiv[23].addEventListener("webkitTransitionEnd",function(){
-                                bFlag=true;
+                                bFlag=true;/*监听器强制规定只有当最后一张图片执行完成以后才变成true*/
                             },false)
                         },30);
                     }
@@ -110,12 +111,12 @@
                         oDiv.style.position = "absolute";
                         oDiv.style.left = j * 125 + "px";
                         oDiv.style.top = i * 125 + "px";
-                        oDiv.style.background = "url(img/"+iNow+".jpg) "+(-j*125)+"px "+(-i*125)+"px";
+                        oDiv.style.background = "url(img/"+iNow+".jpg) "+(-j*125)+"px "+(-i*125)+"px";/*当前图片爆炸*/
                         oDiv.style.WebkitTransition = "all 1s ease";
                         oImg.appendChild(oDiv);
                     }
                 }
-                oImg.style.background = 'url(img/'+ (iNow+1) +'.jpg)';
+                oImg.style.background = 'url(img/'+ (iNow+1) +'.jpg)';/*下一张图片作为背景*/
                 if(iNow==5){
                     iNow=0;
                 }

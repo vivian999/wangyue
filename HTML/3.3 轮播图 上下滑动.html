@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            #container{
+                width: 680px;
+                height: 344px;
+                margin: 100px auto;
+                position: relative;/*由于container是tab的父元素，所以要定位*/
+                overflow: hidden;
+            }
+            #tab{
+                height: 20px;
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+            }
+            #tab li{
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                margin-right: 10px;
+                background: #000;
+                color: white;
+                float: left;
+                cursor: pointer;
+            }
+            #tab li.selected{
+                background: orange;
+            }
+            /*#content img{*/
+            /*display: none;*/
+            /*}*/
+            #content{
+                position: absolute;/*由于四张图片要移动，所以要绝对定位*/
+                top: 0;
+                left: 0;
+            }
+            #content img.selected{
+                display: block;
+            }
+            #arrow{
+                height: 20px;
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+
+            }
+            #arrow span{
+                width: 20px;
+                height: 20px;
+                background: #000;
+                color: white;
+                float: left;
+                margin-right: 5px;
+                text-align: center;
+                line-height: 20px;
+            }
+
+        </style>
+    </head>
+    <body>
+    <div id="container">
+        <div id="content">
+            <img class="selected" src="1.jpg" alt=""/>
+            <img src="2.jpg" alt=""/>
+            <img src="3.jpg" alt=""/>
+            <img src="4.jpg" alt=""/>
+        </div>
+        <ul id="tab">
+            <li class="selected"c>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrow">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+    <script src="img/jslib.js"></script>
+    <script>
+        var oContent= document.getElementById('content');
+        var aImg=oContent.getElementsByTagName('img');
+        var oTab=document.getElementById('tab');
+        var aLi=oTab.getElementsByTagName('li');
+        var oPrev=document.getElementById('prev');
+        var oNext=document.getElementById('next');
+        var iNow=0;
+        oContent.style.height=aImg.length*aImg[0].offsetHeight+'px';
+        oContent.style.width=aImg[0].offsetWidth+'px';
+        for(var i=0;i<aLi.length;i++) {
+            aLi[i].index = i;
+            aLi[i].onmouseover = function () {
+                changeImg(this.index);
+                iNow=this.index;
+            };
+            oNext.onclick = function(){
+                iNow++;
+                if (iNow==aLi.length) {
+                    iNow = 0;
+                }
+                changeImg(iNow);
+            }
+        }
+        oPrev.onclick=function (){
+            iNow--;
+            if (iNow==-1) {
+                iNow=aLi.length-1;
+            }
+            changeImg(iNow);
+        }
+        function changeImg(idx){
+            for (var i=0;i<aLi.length;i++) {
+                aLi[i].className = '';
+    //            aImg[i].className = '';
+            }
+            aLi[idx].className = 'selected';
+    //      aImg[idx].className = 'selected';
+            animate(oContent,{top:-idx*aImg[0].offsetHeight});/*函数调用：动画效果，向左移动一个图片的宽度*/
+        }
+    </script>
+    </body>
+</html>

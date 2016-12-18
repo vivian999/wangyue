@@ -262,7 +262,7 @@
     height: 176px;
 }
 #navy{
-    width: 1002px;
+    /*width: 1002px;*/
     height: 16px;
     margin-top: 44px;
     margin-left: 0;
@@ -291,55 +291,47 @@
 #paragraph{
     margin-top: 39px;
     float: left;
-    width: 1002px;
+    /*width: 1002px;*/
     color: #626262;
     font-size: 15px;
 }
-
-#logo1{
-    width: 35px;
-    height: 35px;
+#logos{
+    width: 279px;
+    height: 36px;
+    margin-top: 45px;
+    margin-right: 0;
+    float: right;
+}
+#logos .logo{
+    width: 36px;
+    height: 36px;
+    float: left;
+    background-image:url("../psd/socialicon.png");
+    /*background-repeat: no-repeat;*/
+}
+.logo1{
     background:url("../psd/socialicon.png")0 0;
+    margin-right: 11px;
   }
-#logo2{
-    width: 35px;
-    height: 35px;
-    margin-top: 45px;
-    margin-right: 231px;
-    float: left;
-    background:url("../psd/socialicon.png") 40px 0;
+.logo2{
+    background:url("../psd/socialicon.png") -47px 0;
+    margin-right: 11px;
 }
-#logo3{
-    width: 35px;
-    height: 35px;
-    margin-top: 45px;
-    margin-right: 184px;
-    float: left;
-    background:url("../psd/socialicon.png") 80px 0;
+.logo3{
+    background:url("../psd/socialicon.png") -94px 0;
+    margin-right: 11px;
 }
-#logo4{
-    width: 35px;
-    height: 35px;
-    margin-top: 45px;
-    margin-right: 137px;
-    float: left;
-    background:url("../psd/socialicon.png") 90px 0;
+.logo4{
+    background:url("../psd/socialicon.png") -141px 0;
+    margin-right: 11px;
+
 }
-#logo5{
-    width: 35px;
-    height: 35px;
-    margin-top: 45px;
-    margin-right: 90px;
-    float: left;
-    background:url("../psd/socialicon.png") 140px 0;
+.logo5 {
+    background: url("../psd/socialicon.png") -188px 0;
+    margin-right: 11px;
 }
-#logo6{
-    width: 35px;
-    height: 35px;
-    margin-top: 45px;
-    margin-right: 43px;
-    float: left;
-    background:url("../psd/socialicon.png") 180px 0px;
+.logo6{
+    background:url("../psd/socialicon.png") -235px 0;
 }
 
 

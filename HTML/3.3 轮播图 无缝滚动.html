@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            #container{
+                width: 680px;
+                height: 344px;
+                margin: 100px auto;
+                position: relative;/*由于container是tab的父元素，所以要定位*/
+                overflow: hidden;
+            }
+            #tab{
+                height: 20px;
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+            }
+            #tab li{
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                margin-right: 10px;
+                background: #000;
+                color: white;
+                float: left;
+            }
+            #tab li.selected{
+                background: orange;
+            }
+            /*#content img{*/
+            /*display: none;*/
+            /*}*/
+            #content{
+                /*width: 5440px;*/
+                position: absolute;/*由于四张图片要移动，所以要绝对定位*/
+                top: 0;
+                left: 0;
+            }
+            #content img{
+                float: left;
+            }
+
+            #arrow{
+                height: 20px;
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+
+            }
+            #arrow span{
+                width: 20px;
+                height: 20px;
+                background: #000;
+                color: white;
+                float: left;
+                margin-right: 5px;
+                text-align: center;
+                line-height: 20px;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="container">
+        <div id="content">
+            <img src="1.jpg" alt=""/>
+            <img src="2.jpg" alt=""/>
+            <img src="3.jpg" alt=""/>
+            <img src="4.jpg" alt=""/>
+            <img src="1.jpg" alt=""/>
+            <img src="2.jpg" alt=""/>
+            <img src="3.jpg" alt=""/>
+            <img src="4.jpg" alt=""/>
+        </div>
+        <ul id="tab">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrow">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+    <script>
+        var oContent= document.getElementById('content');
+        var oPrev=document.getElementById('prev');
+        var oNext=document.getElementById('next');
+
+    //    oContent.innerHTML=oContent.innerHTML+oContent.innerHTML;
+    //    var aImg=oContent.getElementsByTagName('img');
+    //    oContent.style.width=aImg.length*aImg[0].offsetWidth+'px';
+
+        var speed=-2;
+        setInterval(function(){
+            oContent.style.left=oContent.offsetLeft+speed+'px';
+            if(oContent.offsetLeft==-oContent.offsetWidth/2){
+                oContent.style.left=0;
+            }
+            if(oContent.offsetLeft>0){
+                oContent.style.left=-oContent.offsetWidth/2+'px';
+            }
+        },1);
+        oNext.onmouseover=function(){
+            speed=2;
+        }
+        oPrev.onmouseover=function(){
+            speed=-2;
+        }
+    </script>
+
+    </body>
+</html>

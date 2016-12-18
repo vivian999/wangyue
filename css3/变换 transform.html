@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            #div1{
+                width: 200px;
+                height: 200px;
+                border: 5px solid black;
+                -webkit-perspective:800px;
+                margin: 200px;
+            }
+            #div2{
+                width: 200px;
+                height: 200px;
+                background: red;
+                -webkit-transform:skewX(30deg);/*扭曲，水平方向向左扭曲30度*/
+                /*-webkit-transform:scale(2);/!*水平垂直都放大两倍。缩放 4个：不写，x,y,3d*!/*/
+                /*-webkit-transform:translate(-100px,100px);/!*平移，水平向左100px,垂直向下100px。 4个：不写，x,y,z!/*/
+                /*-webkit-transform:rotate(-10deg);/!*旋转，顺时针旋转10度*!。3个：不写，x,y/*/
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            <div id="div2"></div>
+        </div>
+    </body>
+</html>

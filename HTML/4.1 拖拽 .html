@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            /*样式重置*/
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #drag{
+                width: 200px;
+                height: 200px;
+                background: red;
+                position: absolute;//*y因为后边鼠标移动后位置会改变，*/
+                cursor:pointer;/*鼠标变成小手*/
+            }
+        </style>
+    </head>
+    <body>
+        <div id="drag"></div>
+        <H1>ASDFASFSAFSF</H1>
+        <script>
+            var oDrag=document.getElementById('drag');/*获取拖动元素*/
+            oDrag.onmousedown=function(e){/*鼠标点下事件*/
+                e=e||window.event;/*处理事件的兼容性问题*/
+                var iDisY= e.clientY-oDrag.offsetTop;/*鼠标到小框左角上边的位置*/
+                var iDisX= e.clientX-oDrag.offsetLeft;/*鼠标到小框左角左边的位置*/
+                document.onmousemove=function(e){/*鼠标滑动事件*/
+                    e=e||window.event;/*处理事件的兼容性问题*/
+                    oDrag.style.top= e.clientY-iDisY+'px';/*移动完成以后小框左角距离最上边边新的位置*/
+                    oDrag.style.left= e.clientX-iDisX+'px';/*移动完成以后小框左角距离最上边边新的位置*/
+                    return false;/*防止选中其它元素,以下行为不执行*/
+                };
+             oDrag.onmouseup=function(){/*鼠标拿起事件*/
+                 document.onmousemove=null;
+             }
+            };
+            /*冒泡：防止快速滑动没反映，就给父元素添加事件*/
+        </script>
+    </body>
+</html>

@@ -832,15 +832,18 @@
         </div>
        </div>
     </body>
+    <script src="../zepto.min.js"></script>
+    <script src="../../jQuery/jquery-1.12.4.js"></script>
     <script>
         $(function(){
             eventType = isMobile() ?'tap':'click';
             $("#barista-round span").on(eventType,function(){
+                console.log(1)
                 var $index=$(this).index();
                 var $imgNum=$("#barista-images img").size();
                 var $tabNum=$("#barista-round span:visible").size();
                 var $num=Math.ceil($imgNum/$tabNum);
-                var iLeft=$num*290*$index;
+                var iLeft=-$num*290*$index;
                 if($index==$tabNum-1){
                     iLeft=$("#barista").width()-$("#barista-images").width();
                 }

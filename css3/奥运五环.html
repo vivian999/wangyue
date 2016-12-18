@@ -8,7 +8,7 @@
                 width: 200px;
                 height: 200px;
                 border: 10px solid;
-                border-radius:50%;
+                border-radius:50%;/*角圆的程度，最大为宽高的一半*/
                 position: absolute;
             }
             .circle::after{
@@ -22,6 +22,15 @@
                 position:absolute;
                 top: 0;
                 left: 0;
+                -webkit-animation:vivian 2s ease-in infinite;
+            }
+            @-webkit-keyframes{
+            0%{
+
+            }
+            100%{
+                -webkit
+            }
             }
             .blue::after{
                 border-color: blue;
@@ -77,13 +86,10 @@
         </style>
     </head>
     <body>
-    <div id="div1">
         <div class="circle blue"></div>
         <div class="circle yellow"></div>
         <div class="circle red"></div>
         <div class="circle black"></div>
         <div class="circle purple"></div>
-    </div>
-
     </body>
 </html>

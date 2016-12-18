@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+            }
+            ul{
+                list-style:none;
+            }
+            #container{
+                width: 400px;
+                height: 200px;
+                border: 1px solid black;
+                margin: 100px auto;
+                overflow: hidden;
+                position: relative;
+            }
+            #content{
+                width: 1040px;
+                position: absolute;
+                height: 120px;
+
+            }
+            #content li{
+                width: 120px;
+                height: 120px;
+                background: #000;
+                color: white;
+                float: left;
+                margin-right: 10px;
+                text-align: center;
+                line-height: 120px;
+                font-size: 60px;
+            }
+            #arrow{
+                position: absolute;
+                left: 50%;
+                margin-left: -70px;
+                bottom:20px;
+            }
+            #arrow span{
+                width: 60px;
+                height: 30px;
+                background: gray;
+                color: white;
+                float: left;
+                text-align: center;
+                line-height: 30px;
+                margin-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <ul id="content">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+            <div id="arrow">
+                <span id="prev">向左</span>
+                <span id="next">向右</span>
+            </div>
+        </div>
+        <script>
+            var oContent=document.getElementById('content');
+            var oPrev=document.getElementById('prev');
+            var oNext=document.getElementById('next');
+            var speed=-2;
+            oContent.innerHTML=oContent.innerHTML+oContent.innerHTML;
+            setInterval(function(){
+                oContent.style.left=oContent.offsetLeft+speed+'px';
+                if(oContent.offsetLeft==-oContent.offsetWidth/2){
+                    oContent.style.left=0;
+                }
+                if(oContent.offsetLeft>0){
+                    oContent.style.left=-oContent.offsetWidth/2+'px';
+                }
+            },30);
+            oPrev.onmouseover=function(){
+                speed=-2
+            };
+            oNext.onmouseover=function(){
+                speed=2
+            };
+
+
+
+
+
+        </script>
+    </body>
+</html>

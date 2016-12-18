@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small-pic{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            float: left;/*让两个图片块浮动起来*/
+        }
+        #small-pic img{
+            width: 400px;
+            height: 400px;
+
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background: #000;
+            opacity: 0.5;
+            filter:alpha(opacity=50);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        #big-pic{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            float: left;
+            display: none;/*不显示*/
+            position: relative;
+
+        }
+        #big-img{
+            position: absolute;
+        }
+        #mask{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="small-pic">
+    <div id="drag"></div>
+    <img src="练习/1.jpg" alt=""/>
+    <div id="mask"></div>
+</div>
+<div id="big-pic">
+    <img src="练习/2.jpg" alt="" id="big-img"/>
+</div>
+<script>
+    var oSmallPic = document.getElementById("small-pic"),
+            oDrag = document.getElementById("drag"),
+            oBigPic = document.getElementById("big-pic"),
+            oBigImg = document.getElementById("big-img"),
+            oMask = document.getElementById("mask");
+
+    oMask.onmouseover=function(e){
+        e=e||window.event;
+        oDrag.style.display='block';
+        oBigPic.style.display='block';
+    }
+    oMask.onmousemove=function(e){
+        e=e||window.event;
+        var iTop= e.clientY-oDrag.offsetHeight/2;
+        var iLeft= e.clientX-oDrag.offsetWidth/2;
+        if(iTop<0){
+            iTop=0;
+        }
+        if(iTop>oSmallPic.offsetHeight-oDrag.offsetHeight){
+            iTop=oSmallPic.offsetHeight-oDrag.offsetHeight
+        }
+        if(iLeft<0){
+            iLeft=0
+        }
+        if(iLeft>oSmallPic.offsetWidth-oDrag.offsetWidth){
+            iLeft=oSmallPic.offsetWidth-oDrag.offsetWidth
+        }
+        oDrag.style.top=iTop+'px';
+        oDrag.style.left=iLeft+'px';
+        var fScaleY=iTop/(oSmallPic.offsetHeight-oDrag.offsetHeight);
+        var fScaleX=iLeft/(oSmallPic.offsetWidth-oDrag.offsetWidth);
+        oBigImg.style.top=(oBigPic.offsetHeight-oBigImg.offsetHeight)*fScaleY+'px';
+        oBigImg.style.left=(oBigPic.offsetWidth-oBigImg.offsetWidth)*fScaleX+'px';
+
+    }
+    oMask.onmouseout=function() {
+        oDrag.style.display = 'none';
+        oBigPic.style.display = 'none';
+    }
+/*框对框，移动的内容对内容，要达成一致*/
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

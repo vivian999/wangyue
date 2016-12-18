@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>案例1.1-水平导航菜单 </title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            #menu{
+                overflow: hidden;/*为了解决浮动塌陷问题*/
+            }
+            #menu li{
+                background: red;
+                width: 120px;
+                height: 30px;
+                float: left;
+                margin-right: 5px;
+                line-height: 30px;/*文字水平垂直居中*/
+                text-align: center;
+            }
+            #menu a{
+                width: 100%;/*锚点充满li*/
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="menu">
+            <li><a href="#">see1</a></li>
+            <li><a href="#">see2</a></li>
+            <li><a href="#">see3</a></li>
+        </ul>
+    </body>
+
+</html>
